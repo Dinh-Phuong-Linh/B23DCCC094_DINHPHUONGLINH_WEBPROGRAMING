@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thay đổi Nội dung Paragraph</title>
+</head>
+<body>
+    <p>Học viện công nghệ bưu chính viễn thông </p>
+    <p>Học viện ngoại giao </p>
+    <p>Học viện thanh thiếu niên </p>
+    <p>Học viện kĩ  thuật mật mã </p>
+    <p>Học viện kĩ thuật quân sự</p>
+    
+    <script>
+        function updateParagraphs(){
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                paragraph.textContent = 'Updated paragraph';
+            });
+        }
+
+        
+        updateParagraphs();
+    </script>
+</body>
+</html>

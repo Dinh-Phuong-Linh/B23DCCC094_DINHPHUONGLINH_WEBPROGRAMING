@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+    <title>Đăng nhập</title>
+    <script>
+        class login {
+            constructor() {
+                this.correctUsername = 'linh';
+                this.correctPassword = 'linh123';
+            }
+
+            login(username, password) {
+                if (username === this.correctUsername && password === this.correctPassword) {
+                    localStorage.setItem('loggedIn', 'true');
+                    window.location.href = 'bai02.html';
+                } else {
+                    alert('Thông tin đăng nhập không đúng, vui lòng thử lại.');
+                }
+            }
+        }
+
+        function alogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const authManager = new login();
+            authManager.login(username, password);
+        }
+    </script>
 </head>
 <body>
-
-<p id="title">Học viện công nghệ bưu chính viễn thông </p>
-<script> 
-    var title = document.getElementById('title').innerHTML ="Công nghệ thông tin (udu)"
-    alert(title);
-</script>
+    <h1>Đăng nhập</h1>
+    <form onsubmit="alogin(event)">
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" required><br>
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" required><br>
+        <button type="submit">Đăng nhập</button>
+    </form>
 </body>
 </html>

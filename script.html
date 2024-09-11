@@ -1,0 +1,19 @@
+class User {
+    // Hàm constructor được gọi khi một đối tượng User mới được tạo ra
+    constructor(username, password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    // Phương thức để kiểm tra thông tin đăng nhập
+    login(inputUsername, inputPassword) {
+        return this.username === inputUsername && this.password === inputPassword;
+    }
+}
+
+// Tạo một đối tượng mới của lớp User
+const admin = new User('admin', 'password123');
+
+// Kiểm tra thông tin đăng nhập
+console.log(admin.login('admin', 'password123')); // true
+console.log(admin.login('admin', 'wrongPassword')); // false

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ví dụ về ES6</title>
+    <script>
+        class login {
+            constructor() {
+                this.isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+            }
+
+            checkAccess() {
+                if (!this.isLoggedIn) {
+                    window.location.href = 'login.html';
+                }
+            }
+
+            logout() {
+                localStorage.removeItem('loggedIn');
+                window.location.href = 'login.html';
+            }
+        }
+
+        window.onload = function() {
+            const authManager = new login();
+            authManager.checkAccess();
+        };
+
+        function handleLogout() {
+            const authManager = new AuthManager();
+            authManager.logout();
+        }
+    </script>
+</head>
+<body>
+    <h1>Trang quản trị</h1>
+    <button onclick="handleLogout()">Đăng xuất</button>
+    <p>Chào mừng bạn!</p>
+</body>
+</html>
